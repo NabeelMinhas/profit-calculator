@@ -1,24 +1,46 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# Longleaf Lending Profit Calculator
 
-Things you may want to cover:
+This is a Ruby on Rails application for Longleaf Lending that provides a lead generation form and a profit calculator. The application collects user input, calculates estimated profits, generates a termsheet PDF, and emails the PDF to the user.
 
-* Ruby version
+## Features
 
-* System dependencies
+- Collect user input through a form
+- Calculate estimated profits based on input details
+- Generate a termsheet PDF
+- Email the generated PDF to the user
+- Use Sidekiq for background job processing
+- Use Tailwind CSS for styling
 
-* Configuration
+## Requirements
 
-* Database creation
+- Ruby 3.1.0
+- Rails 7.x
+- Redis (for Sidekiq)
+- PostgreSQL (or any other database supported by Rails)
 
-* Database initialization
+## Setup Instructions
 
-* How to run the test suite
+```sh
+git clone https://github.com/NabeelMinhas/profit-calculator
+cd profit-calculator
 
-* Services (job queues, cache servers, search engines, etc.)
+bundle install
+yarn install --check-files
 
-* Deployment instructions
+rails db:create
+rails db:migrate
 
-* ...
+Add these environment variables
+
+EMAIL_USERNAME=your_email@gmail.com
+EMAIL_PASSWORD=your_email_password 
+HOST=your_host_url
+
+brew install redis
+redis-server
+
+bundle exec sidekiq
+
+rails server
