@@ -7,4 +7,7 @@ Rails.application.routes.draw do
 
   resources :calculate_profits, only: [:new, :create, :show]
   root 'calculate_profits#new'
+
+  require 'sidekiq/web'
+  mount Sidekiq::Web => '/sidekiq'
 end

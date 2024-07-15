@@ -7,6 +7,7 @@ class CalculateProfitsController < ApplicationController
     @calculate_profit = CalculateProfit.new(calculate_profit_params)
     if @calculate_profit.save
       ProfitSheet.new(@calculate_profit).generate_pdf
+      SendProfitSheetEmailJob.perform_later(@calculate_profit.id)
       redirect_to @calculate_profit, notice: 'Calculation was successfully created.'
     else
       render :new
