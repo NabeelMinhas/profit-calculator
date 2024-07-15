@@ -6,6 +6,7 @@ class CalculateProfitsController < ApplicationController
   def create
     @calculate_profit = CalculateProfit.new(calculate_profit_params)
     if @calculate_profit.save
+      ProfitSheet.new(@calculate_profit).generate_pdf
       redirect_to @calculate_profit, notice: 'Calculation was successfully created.'
     else
       render :new

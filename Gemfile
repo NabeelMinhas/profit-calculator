@@ -24,6 +24,8 @@ gem 'tailwindcss-rails'
 
 gem 'pg'
 
+gem 'prawn'
+
 # Hotwire's modest JavaScript framework [https://stimulus.hotwired.dev]
 gem "stimulus-rails"
 
