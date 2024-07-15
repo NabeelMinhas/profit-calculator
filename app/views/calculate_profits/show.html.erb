@@ -1,0 +1,18 @@
+<div class="container mx-auto mt-10 p-5 bg-white rounded shadow">
+  <h1 class="text-3xl font-bold mb-5">Calculation Details</h1>
+
+  <p><strong>Address:</strong> <%= @calculate_profit.address %></p>
+  <p><strong>Loan Term (in months):</strong> <%= @calculate_profit.loan_term %></p>
+  <p><strong>Purchase Price:</strong> <%= number_to_currency(@calculate_profit.purchase_price) %></p>
+  <p><strong>Repair Budget:</strong> <%= number_to_currency(@calculate_profit.repair_budget) %></p>
+  <p><strong>After Repair Value (ARV):</strong> <%= number_to_currency(@calculate_profit.arv) %></p>
+  <p><strong>Name:</strong> <%= @calculate_profit.name %></p>
+  <p><strong>Email:</strong> <%= @calculate_profit.email %></p>
+  <p><strong>Phone:</strong> <%= @calculate_profit.phone %></p>
+
+  <h2 class="text-2xl font-bold mt-5">Calculated Values</h2>
+
+  <p><strong>Loan Amount:</strong> <%= number_to_currency(@calculate_profit.loan_amount) %></p>
+  <p><strong>Interest Expense:</strong> <%= number_to_currency(@calculate_profit.total_interest_expense) %></p>
+  <p><strong>Estimated Profit:</strong> <%= number_to_currency(@calculate_profit.estimated_profit) %></p>
+</div>

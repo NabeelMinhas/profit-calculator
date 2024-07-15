@@ -1,0 +1,51 @@
+<div class="container mx-auto mt-10 p-8 bg-white rounded-lg shadow-lg">
+  <h1 class="text-3xl font-bold mb-6 text-center">Lead Generation Form</h1>
+
+  <%= form_with model: @calculate_profit, local: true do |form| %>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div class="mb-4">
+        <%= form.label :address, class: "block text-gray-700 font-medium" %>
+        <%= form.text_field :address, class: "mt-1 block w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring focus:ring-blue-300", required: true %>
+      </div>
+
+      <div class="mb-4">
+        <%= form.label :loan_term, "Loan Term (in months)", class: "block text-gray-700 font-medium" %>
+        <%= form.number_field :loan_term, class: "mt-1 block w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring focus:ring-blue-300", required: true %>
+      </div>
+
+      <div class="mb-4">
+        <%= form.label :purchase_price, "Purchase Price", class: "block text-gray-700 font-medium" %>
+        <%= form.number_field :purchase_price, step: "0.01", class: "mt-1 block w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring focus:ring-blue-300", required: true %>
+      </div>
+
+      <div class="mb-4">
+        <%= form.label :repair_budget, "Repair Budget", class: "block text-gray-700 font-medium" %>
+        <%= form.number_field :repair_budget, step: "0.01", class: "mt-1 block w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring focus:ring-blue-300", required: true %>
+      </div>
+
+      <div class="mb-4">
+        <%= form.label :arv, "After Repair Value (ARV)", class: "block text-gray-700 font-medium" %>
+        <%= form.number_field :arv, step: "0.01", class: "mt-1 block w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring focus:ring-blue-300", required: true %>
+      </div>
+
+      <div class="mb-4">
+        <%= form.label :name, class: "block text-gray-700 font-medium" %>
+        <%= form.text_field :name, class: "mt-1 block w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring focus:ring-blue-300", required: true %>
+      </div>
+
+      <div class="mb-4">
+        <%= form.label :email, class: "block text-gray-700 font-medium" %>
+        <%= form.email_field :email, class: "mt-1 block w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring focus:ring-blue-300", required: true %>
+      </div>
+
+      <div class="mb-4">
+        <%= form.label :phone, class: "block text-gray-700 font-medium" %>
+        <%= form.telephone_field :phone, class: "mt-1 block w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring focus:ring-blue-300", required: true %>
+      </div>
+    </div>
+
+    <div class="mt-6 text-center">
+      <%= form.submit "Submit", class: "px-6 py-2 bg-black text-white rounded-lg shadow hover:bg-blue-600 transition duration-200" %>
+    </div>
+  <% end %>
+</div>
