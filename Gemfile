@@ -25,6 +25,8 @@ gem 'tailwindcss-rails'
 gem 'pg'
 
 gem 'prawn'
+gem "prawn-table"
+gem "prawn-icon"
 
 gem 'sidekiq'
 

@@ -1,13 +1,87 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <style>
-      /* Email styles need to be inline */
-    </style>
-  </head>
-
-  <body>
-    <%= yield %>
-  </body>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <title>Your Profit Sheet</title>
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      background-color: #f4f4f4;
+    }
+    
+    /* Container styling */
+    .container {
+      width: 100%;
+      max-width: 600px; /* Adjust based on your content */
+      margin: 0 auto;
+      background-color: #ffffff;
+      padding: 20px;
+      border: 1px solid #e0e0e0;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+    
+    /* Header styling */
+    .header {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    
+    .header h1 {
+      color: #333333; /* Darker color for header text */
+      font-size: 24px; /* Adjust as needed */
+      margin: 0;
+    }
+    
+    /* Content styling */
+    .content {
+      margin-bottom: 20px;
+    }
+    
+    /* Footer styling */
+    .footer {
+      text-align: center;
+      font-size: 12px; /* Smaller size for footer */
+      color: #999999; /* Lighter color for footer text */
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>Your Profit Sheet</h1>
+    </div>
+    
+    <div class="content">
+      <!-- Email content here -->
+      <p>Hello <%= @calculate_profit.name %>,</p>
+      <p>Here is your profit sheet for review:</p>
+      
+      <!-- Example table -->
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td>Loan Amount:</td>
+          <td><%= number_to_currency(@calculate_profit.loan_amount) %></td>
+        </tr>
+        <tr>
+          <td>Interest Expense:</td>
+          <td><%= number_to_currency(@calculate_profit.total_interest_expense) %></td>
+        </tr>
+        <tr>
+          <td>Estimated Profit:</td>
+          <td><%= number_to_currency(@calculate_profit.estimated_profit) %></td>
+        </tr>
+      </table>
+      
+      <p>Thank you for using our service.</p>
+    </div>
+    
+    <div class="footer">
+      &copy; <%= Date.current.year %> LongLeaf Lending, LLC. All rights reserved.
+    </div>
+  </div>
+</body>
 </html>

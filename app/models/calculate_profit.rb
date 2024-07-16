@@ -18,10 +18,10 @@ class CalculateProfit < ApplicationRecord
   end
 
   def total_interest_expense
-    loan_amount * (1 + monthly_interest_rate)**loan_term - loan_amount
+    (loan_amount * (1 + monthly_interest_rate)**loan_term - loan_amount).round(2)
   end
 
   def estimated_profit
-    arv - loan_amount - total_interest_expense
+    (arv - loan_amount - total_interest_expense).round(2)
   end
 end
